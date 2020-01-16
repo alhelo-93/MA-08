@@ -1,42 +1,42 @@
-use master
+﻿use master
 go
 
 IF db_id('ECave') IS NOT NULL
 BEGIN
     drop database ECave
-END
+END;
 
---adapter le chemin aux fichiers de données et de logs
+--adapter le chemin aux fichiers de donnĂ©es et de logs
 CREATE DATABASE ECave
 	ON  PRIMARY 
-	( NAME = 'ECave', FILENAME = 'C:Documents\Github\MA-08\Exercices\E-cave\CPNV.mdf' , SIZE = 20480KB , MAXSIZE = 51200KB, FILEGROWTH = 1024KB )
+	( NAME = 'ECave', FILENAME = 'C:\Users\marwan.alhelo\Documents\Github\MA-08\Exercices\E-cave\E-cave' , SIZE = 20480KB , MAXSIZE = 51200KB, FILEGROWTH = 1024KB )
 	LOG ON 
-	( NAME = 'ECave_log', FILENAME = 'C:Documents\Github\MA-08\Exercices\E-cave\CPNV_log.ldf' , SIZE = 10240KB , MAXSIZE = 20480KB , FILEGROWTH = 1024KB)
+	( NAME = 'ECave_log', FILENAME = 'C:\Users\marwan.alhelo\Documents\Github\MA-08\Exercices\E-cave\E-cave' , SIZE = 10240KB , MAXSIZE = 20480KB , FILEGROWTH = 1024KB)
 go
 
 USE ECave
 go
 
-create table customers (
-	id int identity(1,1) PRIMARY KEY,
-	phone_number int NOT NULL UNIQUE
-	e_mail varchar(50), NOT NULL UNIQUE
-	name varchar(50), NOT NULL
-	lastname varchar(50), NOT NULL
-	biling_address varchar(50), NOT NULL
-	biling_city  varchar(50), NOT NULL
-	biling_zip int, NOT NULL
-	shipping_address varchar(50), NOT NULL
-	shipping_city  varchar(50), NOT NULL
-	shipping_zip int, NOT NULL
-	regestration_date date, NOT NULL
-	products_id int  FOREIGN KEY REFERENCES products(id)
+CREATE TABLE  [customers] (
+	[id] int identity(1,1) PRIMARY KEY,
+	[phone_number] int NOT NULL UNIQUE,
+	[emai] VARCHAR(50)  NOT NULL UNIQUE,
+	[name] VARCHAR(50) NOT NULL,
+	[lastname] VARCHAR(50) NOT NULL,
+	[biling_address] VARCHAR(50) NOT NULL,
+	[biling_city]  VARCHAR(50) NOT NULL,
+	[biling_zip] int NOT NULL,
+	[shipping_address] VARCHAR(50) NOT NULL,
+	[shipping_city]  VARCHAR(50) NOT NULL,
+	[shipping_zip] int NOT NULL,
+	[regestration_date] DATE NULL,
+	[products_id] int  FOREIGN KEY REFERENCES products(id)
 	
-)
+);
 
 create table cantons (
 	id int identity(1,1) PRIMARY KEY,
-	canton_name varchar(50), NOT NULL 
+	canton_name varchar (50),NOT NULL 
 	canton_language varchar(50), NOT NULL 
 	customers_id int FOREIGN KEY REFERENCES customers(id)
 		
@@ -83,7 +83,7 @@ create table spicalewine (
 	winecolor_id int FOREIGN KEY REFERENCES winecolor(id)	
 )
 
-/* contrainte de domaine*/ 
+
 create table Winecolor (
 	id int identity(1,1) PRIMARY KEY,
 	Sirel_number int, NOT NULL UNIQUE
@@ -158,15 +158,3 @@ create table events (
 	event_city  varchar(50), NOT NULL
 	event_zip int, NOT NULL	
 )
-
-ALTER TABLE customers.ECave
-	  FOREIGN KEY (products_id)
-      REFERENCES Sales.SalesReason (products(id))
-      ON DELETE CASCADE
-      ON UPDATE CASCADE
-;
-
-
-
-
-
