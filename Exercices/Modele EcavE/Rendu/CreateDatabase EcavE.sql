@@ -9,9 +9,9 @@ END
 --adapter le chemin aux fichiers de données et de logs
 CREATE DATABASE ECave
 	ON  PRIMARY 
-	( NAME = 'ECave', FILENAME = 'C:Documents\Github\MA-08\Exercices\E-cave\CPNV.mdf' , SIZE = 20480KB , MAXSIZE = 51200KB, FILEGROWTH = 1024KB )
+	( NAME = 'ECave', FILENAME = 'C\Documents\Github\MA-08\Exercices\E-cave\CPNV.mdf' , SIZE = 20480KB , MAXSIZE = 51200KB, FILEGROWTH = 1024KB )
 	LOG ON 
-	( NAME = 'ECave_log', FILENAME = 'C:Documents\Github\MA-08\Exercices\E-cave\CPNV_log.ldf' , SIZE = 10240KB , MAXSIZE = 20480KB , FILEGROWTH = 1024KB)
+	( NAME = 'ECave_log', FILENAME = 'C\Documents\Github\MA-08\Exercices\E-cave\CPNV_log.ldf' , SIZE = 10240KB , MAXSIZE = 20480KB , FILEGROWTH = 1024KB)
 go
 
 USE ECave
