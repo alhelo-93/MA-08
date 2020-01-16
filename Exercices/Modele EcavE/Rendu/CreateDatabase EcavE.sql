@@ -83,7 +83,7 @@ create table spicalewine (
 	winecolor_id int FOREIGN KEY REFERENCES winecolor(id)	
 )
 
-
+/* contrainte de domaine*/ 
 create table Winecolor (
 	id int identity(1,1) PRIMARY KEY,
 	Sirel_number int, NOT NULL UNIQUE
@@ -158,5 +158,15 @@ create table events (
 	event_city  varchar(50), NOT NULL
 	event_zip int, NOT NULL	
 )
+
+ALTER TABLE customers.ECave
+	  FOREIGN KEY (products_id)
+      REFERENCES Sales.SalesReason (products(id))
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+;
+
+
+
 
 

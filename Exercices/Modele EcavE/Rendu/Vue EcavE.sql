@@ -10,3 +10,4 @@ CREATE VIEW V_Oenologistes AS SELECT Name, LastName, laboratory, certificate;
 CREATE VIEW V_Grapjuices AS SELECT grapType, GrapColor, bottelSize;
 
 
+
